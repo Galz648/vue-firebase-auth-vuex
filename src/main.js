@@ -7,6 +7,9 @@ import * as firebase from 'firebase'
 import router from './router'
 import { store } from './store'
 const AlertCmp = () => import('./components/Shared/Alert.vue')
+import VueApexCharts from 'vue-apexcharts'
+Vue.use(VueApexCharts)
+Vue.component('apexchart', VueApexCharts)
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
@@ -18,14 +21,15 @@ new Vue({
   router,
   store,
   template: '<App/>',
-  components: { App },
+  components: { App, apexchart: VueApexCharts },
   created () {
     firebase.initializeApp({
-      apiKey: '',
-      authDomain: '',
-      databaseURL: '',
-      projectId: '',
-      storageBucket: ''
+      apiKey: 'AIzaSyBnAb9owSJTmCqhJjsIVSGK_E7-XwLTb5o',
+      authDomain: 'kaka-stream.firebaseapp.com',
+      projectId: 'kaka-stream',
+      storageBucket: 'kaka-stream.appspot.com',
+      messagingSenderId: '909517773655',
+      appId: '1:909517773655:web:fa6d33868207a31f0d3c12'
     })
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {

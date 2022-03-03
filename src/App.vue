@@ -65,7 +65,6 @@
     computed: {
       menuItems () {
         let menuItems = [
-          {icon: 'face', title: 'Sign up', link: '/signup'},
           {icon: 'lock_open', title: 'Sign in', link: '/signin'}
         ]
         if (this.userIsAuthenticated) {
